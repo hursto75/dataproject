@@ -11,6 +11,6 @@
            };
            firebase.initializeApp(config);
            var ref = firebase.database().ref();
-           $scope.booger = $firebaseObject(ref.child('booger'));
-
+           var boogObj = $firebaseObject(ref.child('booger'));
+           boogObj.$bindTo($scope, "booger");
        }]);
