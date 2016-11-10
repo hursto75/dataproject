@@ -1,5 +1,5 @@
-   angular.module('rc', [])
-       .controller('DataController', ['$scope', function($scope) {
+   angular.module('rc', ['firebase'])
+       .controller('DataController', ['$scope', '$firebaseObject', function($scope, $firebaseObject) {
            $scope.message = "Hello World";
            // Initialize Firebase
            var config = {
@@ -11,9 +11,6 @@
            };
            firebase.initializeApp(config);
            var ref = firebase.database().ref();
-           ref.child("booger").set({
-           	size: "big",
-           	texture: "crusty"
-           })
-           
+           $scope.booger = $firebaseObject(ref.child('booger'));
+
        }]);
