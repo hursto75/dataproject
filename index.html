@@ -12,11 +12,15 @@
 </head>
 <body ng-app="rc" ng-controller="DataController">
  
-<h1>Main Title</h1>
-<p>Size: {{booger.size}}</p>
-<p>Texture: {{booger.texture}}</p>
+<h1>My booger is {{booger.size}} and {{booger.texture}}</h1>
 <br><br>
 <p>Size: <input type="text" ng-model="booger.size"></p>
 <p>Texture: <input type="text" ng-model="booger.texture"></p>
+<br>
+<h2>Showing {{helicopters.length}} helicopters</h2>
+<div ng-repeat="helicopter in helicopters">
+	<h4>Model: {{helicopter.model}} Price:{{helicopter.price}}</h4>
+</div>
+
 </body>
 </html>

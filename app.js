@@ -1,5 +1,5 @@
    angular.module('rc', ['firebase'])
-       .controller('DataController', ['$scope', '$firebaseObject', function($scope, $firebaseObject) {
+       .controller('DataController', ['$scope', '$firebaseObject', '$firebaseArray', function($scope, $firebaseObject, $firebaseArray) {
            $scope.message = "Hello World";
            // Initialize Firebase
            var config = {
@@ -13,4 +13,7 @@
            var ref = firebase.database().ref();
            var boogObj = $firebaseObject(ref.child('booger'));
            boogObj.$bindTo($scope, "booger");
+           $scope.helicopters = $firebaseArray(ref.child('helicopters'));
+
+
        }]);
